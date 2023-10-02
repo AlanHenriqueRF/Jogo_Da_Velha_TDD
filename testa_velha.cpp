@@ -84,3 +84,18 @@ TEST(VelhaTests, Indefined) {
     EXPECT_EQ(
         verifica_vencedor({{2, 1, 2}, {1, 0, 0}, {0, 0, 0}}), -1);
 }
+
+TEST(VelhaTests, Impossible) {
+    EXPECT_EQ(
+        verifica_vencedor({{1, 1, 1}, {1, 1, 1}, {1, 1, 1}}), -2);
+    EXPECT_EQ(
+        verifica_vencedor({{0, 0, 0}, {0, 0, 2}, {0, 0, 0}}), -2);
+    EXPECT_EQ(
+        verifica_vencedor({{2, 2, 2}, {2, 2, 2}, {2, 2, 2}}), -2);
+    EXPECT_EQ(
+        verifica_vencedor({{0, 0, 2}, {1, 2, 1}, {2, 0, 0}}), -2);
+    EXPECT_EQ(
+        verifica_vencedor({{0, 0, 0}, {0, 2, 2}, {0, 1, 0}}), -2);
+    EXPECT_EQ(
+        verifica_vencedor({{1, 0, 0}, {0, 1, 2}, {1, 1, 2}}), -2);
+}
