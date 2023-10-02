@@ -1,7 +1,7 @@
 // Copyright (c) 2023 Seu Alan Henrique Rangel Ferreira
 
-#ifndef VELHA_HPP_
-#define VELHA_HPP_
+#ifndef INCLUDE_VELHA_HPP_
+#define INCLUDE_VELHA_HPP_
 #include <iostream>
 #include <vector>
 
@@ -76,4 +76,4 @@ int verifica_vencedor(const std::vector<std::vector<int>> &jogo) {
     return 0;
 }
 
-#endif  // VELHA_HPP_
+#endif  // INCLUDE_VELHA_HPP_

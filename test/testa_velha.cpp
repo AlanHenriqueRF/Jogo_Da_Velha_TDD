@@ -3,7 +3,7 @@
 #include <gtest/gtest.h>
 #include <iostream>
 #include <vector>
-#include "./velha.hpp"
+#include "../include/velha.hpp"
 
 TEST(VelhaTests, winnerX) {
     EXPECT_EQ(
