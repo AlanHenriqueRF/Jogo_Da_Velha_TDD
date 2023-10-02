@@ -1,7 +1,6 @@
 # Para o Programa funcionar deve-se usar o seguinte comando para compilar o projeto
 
 ```
-
 g++ -o ./test/tests ./test/testa_velha.cpp -lgtest -lgtest_main -pthread
 
 ```
