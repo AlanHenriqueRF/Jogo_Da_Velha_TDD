@@ -1,3 +1,5 @@
+// Copyright (c) 2023 Seu Alan Henrique Rangel Ferreira
+
 #ifndef velha_hpp
 #define velha_hpp
 #include <iostream>
