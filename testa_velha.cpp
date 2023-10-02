@@ -31,20 +31,20 @@ TEST(VelhaTests, winnerO) {
         verifica_vencedor({{2, 1, 0}, {0, 2, 1}, {0, 1, 2}})
         , 2);  // Diagonal Principal
     EXPECT_EQ(
-        verifica_vencedor({{0, 1, 2}, {0, 2, 0}, {2, 1, 0}})
+        verifica_vencedor({{0, 1, 2}, {0, 2, 1}, {2, 1, 0}})
         , 2);  // Diagonal Secundaria
     EXPECT_EQ(
-        verifica_vencedor({{2, 1, 0}, {2, 1, 0}, {2, 0, 0}}), 2);  // Coluna 1
+        verifica_vencedor({{2, 1, 0}, {2, 1, 0}, {2, 0, 1}}), 2);  // Coluna 1
     EXPECT_EQ(
-        verifica_vencedor({{0, 2, 1}, {0, 2, 0}, {1, 2, 0}}), 2);  // Coluna 2
+        verifica_vencedor({{0, 2, 1}, {1, 2, 0}, {1, 2, 0}}), 2);  // Coluna 2
     EXPECT_EQ(
         verifica_vencedor({{1, 0, 2}, {1, 1, 2}, {2, 1, 2}}), 2);  // Coluna 3
     EXPECT_EQ(
-        verifica_vencedor({{2, 2, 2}, {1, 0, 0}, {0, 1, 0}}), 2);  // Linha 1
+        verifica_vencedor({{2, 2, 2}, {1, 1, 0}, {0, 1, 0}}), 2);  // Linha 1
     EXPECT_EQ(
-        verifica_vencedor({{1, 0, 0}, {2, 2, 2}, {0, 1, 0}}), 2);  // Linha 2
+        verifica_vencedor({{1, 0, 0}, {2, 2, 2}, {0, 1, 1}}), 2);  // Linha 2
     EXPECT_EQ(
-        verifica_vencedor({{1, 1, 2}, {0, 1, 0}, {2 ,2, 2}}), 2);  // Linha 3
+        verifica_vencedor({{1, 1, 2}, {1, 1, 0}, {2 , 2, 2}}), 2);  // Linha 3
 }
 
 TEST(VelhaTests, ForcedDraw) {
@@ -64,4 +64,23 @@ TEST(VelhaTests, ForcedDraw) {
         verifica_vencedor({{2, 1, 2}, {2, 1, 1}, {1, 2, 1}}), 0);
     EXPECT_EQ(
         verifica_vencedor({{2, 1, 2}, {1, 1, 2}, {1, 2, 1}}), 0);
+}
+
+TEST(VelhaTests, Indefined) {
+    EXPECT_EQ(
+        verifica_vencedor({{1, 2, 0}, {0, 0, 0}, {0, 0, 0}}), -1);
+    EXPECT_EQ(
+        verifica_vencedor({{0, 0, 0}, {0, 0, 1}, {0, 0, 0}}), -1);
+    EXPECT_EQ(
+        verifica_vencedor({{0, 0, 2}, {0, 0, 1}, {0, 0, 0}}), -1);
+    EXPECT_EQ(
+        verifica_vencedor({{0, 0, 2}, {1, 2, 1}, {0, 0, 0}}), -1);
+    EXPECT_EQ(
+        verifica_vencedor({{0, 0, 0}, {0, 0, 0}, {0, 1, 0}}), -1);
+    EXPECT_EQ(
+        verifica_vencedor({{0, 0, 0}, {0, 0, 2}, {1, 1, 2}}), -1);
+    EXPECT_EQ(
+        verifica_vencedor({{0, 0, 0}, {0, 0, 2}, {1, 2, 1}}), -1);
+    EXPECT_EQ(
+        verifica_vencedor({{2, 1, 2}, {1, 0, 0}, {0, 0, 0}}), -1);
 }

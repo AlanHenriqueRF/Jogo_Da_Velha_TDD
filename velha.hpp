@@ -26,7 +26,7 @@ int verifica_vencedor(const std::vector<std::vector<int>> &jogo) {
         }
     }
 
-    if (abs(qntd1 - qntd2) > 1) {
+    if (abs(qntd1 - qntd2) > 1 || (qntd2 > qntd1)) {
         // Foi feita a cotagem de numeros 1 e de numeros 2
         // se a diferença absoluata entre eles for maior que 1,
         // significa quem alguem jogou duas vezes
@@ -39,7 +39,8 @@ int verifica_vencedor(const std::vector<std::vector<int>> &jogo) {
         return -2;
     }
 
-    if ((qntd1 == 0 && qntd2 > 0) || (qntd2 == 0 && qntd1 > 0)) {
+    if ((qntd1 == 0 && qntd2 > 0) || (qntd2 == 0 && qntd1 > 0) ||
+    (qntd1 < 3 && qntd2 < 3)) {
         // Jogo indefinido
         return -1;
     }
