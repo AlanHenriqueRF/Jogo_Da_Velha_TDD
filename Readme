@@ -1,0 +1,28 @@
+# Para o Programa funcionar deve-se usar o seguinte comando para compilar o projeto
+
+```
+
+g++ -o ./test/tests ./test/testa_velha.cpp -lgtest -lgtest_main -pthread
+
+```
+
+## Logo após compilar os testes para rodar os testes deve apenas rodar o seguinte comando
+
+```
+./test/tests
+```
+
+## Para compilar o arquivo cpp deve usar o seguinte comando
+
+```
+g++ ./src/velha.cpp -o ./src/velha.out
+```
+
+
+## E para rodar ele simeplesmente deve-se rodar
+
+```
+./src/velha.cpp
+```
+
+
