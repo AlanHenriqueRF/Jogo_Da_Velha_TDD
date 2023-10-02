@@ -6,7 +6,7 @@
 #include <vector>
 using namespace std;
 
-int verifica_vencedor(vector<vector<int>> &jogo){
+int verifica_vencedor(const vector<vector<int>> &jogo){
     int soma_jog = 0;
     for (int i = 0; i < 3; i++){
         for (int j = 0; j < 3; j++){
@@ -40,23 +40,30 @@ int verifica_vencedor(vector<vector<int>> &jogo){
         return -1;
     }
 
-    if ((jogo[0][0] == jogo[1][1] == jogo[2][2])){ //Diagonal principal
+    bool testZeroeUm =  jogo[0][0] == jogo[1][1];
+    bool testUmeDois =  jogo[1][1] == jogo[2][2];
+    bool testDifZeroUmDois = (jogo[0][0] + jogo[1][1] + jogo[2][2]) >= 3;
+
+    if (testZeroeUm && testUmeDois && testDifZeroUmDois ){ //Diagonal principal
         return jogo[0][0];
     }
 
-    if ((jogo[2][0] == jogo[1][1] == jogo[0][2])){ // Diagonal secundaria
-        return jogo[2][0];
+    bool testDoiseUm =  jogo[0][2] == jogo[1][1];
+    bool testUmeZero =  jogo[1][1] == jogo[2][0];
+    bool testDifDoisUmZero = jogo[0][2] + jogo[1][1] + jogo[2][0] >= 3;
+    
+    if (testDoiseUm && testUmeZero && testDifDoisUmZero ){ // Diagonal secundaria
+        return jogo[0][2];
     }
 
     for (int i = 0; i < 3; i++){
-        if ((jogo[i][0] == jogo[i][1] == jogo[i][2] != 0)){ // vencedor da linha
+        if ((jogo[i][0] == jogo[i][1]) && (jogo[i][1]== jogo[i][2]) && ((jogo[i][0] + jogo[i][1] + jogo[i][2]) >= 3)){ // vencedor da linha
             return jogo[i][0];
         }
-        if ((jogo[0][i] == jogo[1][i] == jogo[2][i] != 0)){ // vencedor da coluna
+        if ((jogo[0][i] == jogo[1][i]) && (jogo[1][i] == jogo[2][i]) && ((jogo[0][i] + jogo[1][i] + jogo[2][i]) >= 3)){ // vencedor da coluna
             return jogo[0][i];
         }
     }
-
     return 0;
 }
 
