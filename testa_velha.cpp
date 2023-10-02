@@ -46,3 +46,22 @@ TEST(VelhaTests, winnerO) {
     EXPECT_EQ(
         verifica_vencedor({{1, 1, 2}, {0, 1, 0}, {2 ,2, 2}}), 2);  // Linha 3
 }
+
+TEST(VelhaTests, ForcedDraw) {
+    EXPECT_EQ(
+        verifica_vencedor({{1, 2, 1}, {2, 2, 1}, {1, 1, 2}}), 0);
+    EXPECT_EQ(
+        verifica_vencedor({{1, 0, 1}, {2, 2, 1}, {1, 0, 2}}), 0);
+    EXPECT_EQ(
+        verifica_vencedor({{1, 2, 1}, {2, 2, 1}, {1, 0, 2}}), 0);
+    EXPECT_EQ(
+        verifica_vencedor({{2, 1, 2}, {0, 1, 0}, {1, 2, 1}}), 0);
+    EXPECT_EQ(
+        verifica_vencedor({{2, 1, 2}, {2, 1, 0}, {1, 2, 1}}), 0);
+    EXPECT_EQ(
+        verifica_vencedor({{2, 1, 2}, {0, 1, 2}, {1, 2, 1}}), 0);
+    EXPECT_EQ(
+        verifica_vencedor({{2, 1, 2}, {2, 1, 1}, {1, 2, 1}}), 0);
+    EXPECT_EQ(
+        verifica_vencedor({{2, 1, 2}, {1, 1, 2}, {1, 2, 1}}), 0);
+}
